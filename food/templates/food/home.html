@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<title>Food Reviews</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+<body>
+
+<!-- Sidebar (hidden by default) -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()"
+  class="w3-bar-item w3-button">Close Menu</a>
+  <a href="{% url 'food-home' %}" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+  <a href="{% url 'food-about' %}" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+  <a href="{% url 'food-contactus' %}" onclick="w3_close()" class="w3-bar-item w3-button">Contact Us</a>
+
+
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+  <div class="w3-right w3-padding-16">
+   {% if user.is_authenticated %}
+       <a href="{% url 'profile' %}"onclick="w3_close()" class="w3-bar-item w3-button">Profile</a>
+       <a href="{% url 'logout' %}"onclick="w3_close()" class="w3-bar-item w3-button">Logout</a>
+
+    {% else %}
+      <a href="{% url 'login' %}"onclick="w3_close()" class="w3-bar-item w3-button">Login</a>
+
+    {% endif %}
+  </div>
+
+    <div class="w3-center w3-padding-16">My Food Reviews</div>
+  </div>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" >
+    <div class="w3-quarter">
+      <a href="{% url 'food-butterchicken' %}">
+        <img src="static/butterchicken.jpeg" alt="Butterchicken" style="width:100%"></a>
+      <h3>Perfection, Punjabi Rasoi</h3>
+      <p>Just cream,buttery and delicious.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-chickencurry' %}">
+        <img src="static/chicken curry.jpeg" alt="Chicken Curry" style="width:100%"></a>
+      <h3>Let Me Tell You About This curry, Punjabi Dhaba</h3>
+      <p>You haven't had anything like this before.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-keema' %}">
+        <img src="static/keema.jpg" alt="Keema" style="width:100%"></a>
+      <h3>Keema, Irani Cafe</h3>
+      <p>You will come back.</p>
+     </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-shahipaneer' %}">
+        <img src="static/shahi paneer.jpeg" alt="Shahi Paneer" style="width:100%"></a>
+      <h3>Shahi paneer Punjabi Dhaba</h3>
+      <p>Dilli ki yaad.</p>
+    </div>
+  </div>
+
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <a href="{% url 'food-kadhaipaneer' %}">
+        <img src="static/kadhai paneer.jpeg" alt="Kadhai panner" style="width:100%"></a>
+      <h3>Well Balanced Kadhai paneer, Punjabi Rasoi</h3>
+      <p>The right amount of greens and onions.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-masaladosa' %}">
+        <img src="static/dosa.jpg" alt="Masala Dosa" style="width:100%"></a>
+      <h3>Vaishali</h3>
+      <p>You will have no reason to hate</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-pasta' %}">
+        <img src="static/pasta.jpeg" alt="Pasta" style="width:100%"></a>
+      <h3>The Perfect Pasta, Auther's Theme</h3>
+      <p>A Real classic.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-burger' %}">
+        <img src="static/burger.jpeg" alt="Burger" style="width:100%"></a>
+      <h3>American, flipped</h3>
+      <p>Fall in love with the first bite.</p>
+    </div>
+  </div>
+
+  <!-- Third Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" >
+    <div class="w3-quarter">
+      <a href="{% url 'food-pizza' %}">
+        <img src="static/pizza.jpg" alt="Pizza" style="width:100%"></a>
+      <h3>The Perfect Pizza, Baked & Wired</h3>
+      <p>The tasty chicago style pizza.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-rolls' %}">
+        <img src="static/rolls.jpg" alt="Rolls" style="width:100%"></a>
+      <h3>Let Me Tell You About This Butter Chicken Roll , Rolls inn</h3>
+      <p>Nobody does it better.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-naanza' %}">
+        <img src="static/naanza.jpeg" alt="Naanza" style="width:100%"></a>
+      <h3>Paper Thin, Indigo delicassan</h3>
+      <p>Light as a cloud.</p>
+
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-coffee' %}">
+        <img src="static/coffee.jpeg" alt="Coffee" style="width:100%"></a>
+      <h3>Once Again, Robust Coffee, coffee jar</h3>
+      <p>The right amount of density and flavour.</p>
+    </div>
+  </div>
+
+  <!-- Fourth Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <a href="{% url 'food-lassi' %}">
+        <img src="static/lassi.jpeg" alt="Lassi" style="width:100%"></a>
+      <h3>All I Need Is a lassi flavoured popsicle, khalsa</h3>
+      <p>Been there for ages.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-shawarma' %}">
+        <img src="static/shawrma.jpg" alt="Shawarma" style="width:100%"></a>
+      <h3>Shawarma , Rolls inn</h3>
+      <p>This one is for the ages.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-biryani' %}">
+        <img src="static/Biryani.jpeg" alt="Biryani" style="width:100%"></a>
+      <h3>The Perfect Biryani, Biryani House</h3>
+      <p>Finger licking good.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-roastedchicken' %}">
+        <img src="static/roasted chicken.jpeg" alt="Roasted Chicken" style="width:100%"></a>
+      <h3>Roasted Chicken,Seven</h3>
+      <p>The real deal..</p>
+    </div>
+  </div>
+
+    <!-- Fifth Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+      <a href="{% url 'food-tandoorichicken' %}">
+        <img src="static/tandoori chicken.jpeg" alt="Tandoori Chicken" style="width:100%"></a>
+      <h3>The Perfect Tandoori Chicken, Punjabi Chulah</h3>
+      <p>A Real Punjabi Classic.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-afghanichicken' %}">
+        <img src="static/afghani chicken.jpeg" alt="Afghani Chicken" style="width:100%"></a>
+      <h3>Let Me Tell You About This Afghani Chicken,Punjabi Rasoi</h3>
+      <p>Lip smacking Delicious.</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-mushroomtikka' %}">
+        <img src="static/mushroom tikka.jpeg" alt="Mushroom Tikka" style="width:100%"></a>
+      <h3>Mushroom Tikka, Krishna Veg</h3>
+      <p>Really soft and flavoursome.</p>
+      <p>What else?</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="{% url 'food-paneertikka' %}">
+        <img src="static/paneer tikka.jpg" alt="Paneer Tikka" style="width:100%"></a>
+      <h3> Paneer Tikka,Punjabi Dhaba</h3>
+      <p>Once Again melting in mouth.</p>
+    </div>
+  </div>
+
+
+
+  <hr id="about">
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32 w3-center">
+    <h3>About Me, The Food Man</h3><br>
+    <img src="static/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <div class="w3-padding-32">
+      <h4><b>I am Who I Am!</b></h4>
+      <h6><i>With Passion For Real, Good Food</i></h6>
+      <p>Just me, myself and I, exploring the universe of unknownment. I love my food and opened this website so that we  all could share our thoughts on the food we like!</p>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32">
+    <div class="w3-third">
+      <h3>Footer</h3>
+      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      <p>Powered by <a href="https://www.zomato.com" target="_blank"></a></p>
+    </div>
+
+    <div class="w3-third">
+      <h3>BLOG POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="static/cheese garlic.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Lorem</span><br>
+          <span>Sed mattis nunc</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="static/rolls.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Ipsum</span><br>
+          <span>Praes tinci sed</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-serif">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New Delhi</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Pune</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Desi</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Paneer</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Coffee</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavours</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Mushroom</span>
+      </p>
+    </div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>

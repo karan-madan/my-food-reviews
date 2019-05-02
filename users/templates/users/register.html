@@ -1,0 +1,30 @@
+{% load crispy_forms_tags %}
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+
+</style>
+{% block content %}
+ <div class=content-section">
+     <form method="POST">
+         {% csrf_token %}
+         <fieldset class="form-group">
+             <legend class="border-bottom mb-4">Join Today</legend>
+             {{ form|crispy }}
+         </fieldset>
+         <div class=form-group">
+             <button class="btn btn-outline-info" type="submit">Sign Up</button>
+         </div>
+     </form>
+     <div class="border-top pt-3">
+         <small class="text-muted">Already Have An Account?
+         <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+         </small>
+     </div>
+ </div>
+{% endblock content %}
